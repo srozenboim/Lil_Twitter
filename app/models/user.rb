@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
 	has_many :followers, { through: :passive, source: :follower }
 	has_many :following, { through: :active, source: :followed }
 
-
+	def follow(other_user)
+		self.following << other_user
+	end
 
 	include BCrypt
 
