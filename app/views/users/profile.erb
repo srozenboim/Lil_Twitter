@@ -2,6 +2,7 @@
   <br><br>  <p><%= @user.username %></p>
 
   <a href="/users/<%= @user.id %>/following">following</a>
+  <a href="/users/<%= @user.id %>/followers">followers</a>
 
   <% if current_user.following?(@user) %>
   <form class="unfollow button" action="/users/<%= @user.id %>/unfollow" method="post">

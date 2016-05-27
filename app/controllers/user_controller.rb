@@ -96,6 +96,10 @@ get '/users/:id/following' do
   erb :'users/following'
 end
 
+get '/users/:id/followers' do
+  @user = User.find(params[:id])
+  erb :'users/followers'
+end
 
 
 
