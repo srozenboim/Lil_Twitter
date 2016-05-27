@@ -88,8 +88,8 @@ end
 namespace :db do
   desc "Create the database at #{DB_NAME}"
   task :create do
-    puts "Creating database #{DB_NAME} if it doesn't exist..."
-    exec("createdb #{DB_NAME}")
+    puts "Creating development and test databases if they don't exist..."
+    system("createdb #{APP_NAME}_development && createdb #{APP_NAME}_test")
   end
 
   desc "Drop the database at #{DB_NAME}"
