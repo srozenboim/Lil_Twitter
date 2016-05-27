@@ -25,6 +25,8 @@ post '/posts' do
   end
 end
 
+#create a retweet
+
 
 # get edit page
 get '/posts/:id/edit' do
