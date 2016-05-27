@@ -86,6 +86,10 @@ post '/users/:id/follow' do
   redirect "/users/#{params[:follow_user_id]}"
 end
 
+post '/users/:id/unfollow' do
+  current_user.unfollow(User.find(params[:unfollow_user_id]))
+  redirect "/users/#{params[:unfollow_user_id]}"
+end
 
 
 
