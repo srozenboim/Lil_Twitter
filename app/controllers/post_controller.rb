@@ -1,4 +1,3 @@
-#show all users
 get '/posts' do
   @posts = Post.all
   erb :'posts/index'
