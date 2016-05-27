@@ -13,7 +13,7 @@ end
 def login
   @user = User.find_by_email(params[:email])
   if @user.password == params[:password]
-    session[:user_id] = @user.id
+    session[:id] = @user.id
     session[:visit] = 0
     redirect "users/#{@user.id}/feed"
   else
@@ -37,10 +37,10 @@ post '/users' do
 end
 
 #get edit page
-get '/users/:id/edit' do
-	@user = User.find(params[:id])
-	erb :'/users/user_edit'
-end
+# get '/users/:id/edit' do
+# 	@user = User.find(params[:id])
+# 	erb :'/users/user_edit'
+# end
 
 #show a user
 get '/users/:id' do

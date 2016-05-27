@@ -1,13 +1,16 @@
-<h1><%= @template.title %></h1>
-<h2>By: <%= @template.user.username %></h2>
-<p><%= @template.body %></p>
-<% if allow_edit(@template) %>
-  <a href="/templates/<%= @template.id %>/edit">edit</a>
-    <form class="template-delete button" action="/templates/<%= @template.id %>" method="post">
+<h2>This tweet was created on: <%= @post.created_at %></h2>
+
+
+<p><%= @post.body %></p>
+
+<% if @post.user_id == current_user.id %>
+  <a href="/posts/<%= @post.id %>/edit">edit</a>
+    <form class="post-delete button" action="/posts/<%= @post.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="delete template" class="template-delete">
+    <input type="submit" value="delete post" class="post-delete">
   </form>
-<% end %>
+  <% end %>
+
 
 
 
