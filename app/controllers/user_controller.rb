@@ -45,7 +45,8 @@ end
 #show a user
 get '/users/:id' do
   @user = User.find(params[:id])
-  erb :'profile'
+  @posts = @user.posts.order(:created_at => :desc)
+  erb :'users/profile'
 end
 
 #shows personal feed
