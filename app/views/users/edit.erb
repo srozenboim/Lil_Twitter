@@ -1,0 +1,16 @@
+<h1>Edit Settings</h1>
+
+<form action='/users/<%=@user.id%>' method='POST' name='signup_form'>
+	<input type='hidden' name='_method' value='PUT'>
+  <label for='username'>Username</label>
+	<input type='text' placeholder='Username' name='username' value='<%=@user.username%>'><br>
+  <label for='email'>E-mail</label>
+	<input type='text' placeholder='Email' name='email' value='<%=@user.email%>'><br>
+	<input type='submit' value='Edit'>
+</form>
+
+ <form class="delete account button" action="/users/<%=@user.id%>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="delete your account" class="user-delete"><br><br>
+      </form>
+

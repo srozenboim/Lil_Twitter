@@ -29,18 +29,18 @@ post '/users' do
   if create
     session[:user_id] = @user.id
     session[:visit] = 0
-    redirect "users/#{@user.id}"
+    redirect "users/#{@user.id}/feed"
   else
     @errors = @user.errors.full_messages
     erb :'users/new'
   end
 end
 
-#get edit page
-# get '/users/:id/edit' do
-# 	@user = User.find(params[:id])
-# 	erb :'/users/user_edit'
-# end
+# get edit page
+get '/users/:id/edit' do
+	@user = User.find(params[:id])
+	erb :'/users/edit'
+end
 
 #show a user
 get '/users/:id' do
@@ -74,7 +74,9 @@ end
 delete '/users/:id' do
   User.find(params[:id]).destroy
   session[:id] = nil
+  session.clear
   current_user = nil
+  redirect '/'
 end
 
 
