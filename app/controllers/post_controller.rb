@@ -39,7 +39,8 @@ end
 #show a post
 get '/posts/:id' do
   @post = Post.find(params[:id])
-  erb :'/posts/show'
+  @post.update(body: params[:body])
+  redirect "posts/#{@post.id}"
 end
 
 # submit post edit

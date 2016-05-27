@@ -1,9 +1,7 @@
-<h1>Edit new template information</h1>
-<form action="/templates/<%= @template.id %>" method="post">
-<input type="hidden" name="_method" value="put">
-<input type="text" name="title" value="<%= @template.title %>">
-<input type="text" name="tag" placeholder="enter a new tag">
-<textarea name="body" value="<%= @template.body %>"></textarea>
-<input type="submit" value="Update">
+<h1>Edit your post</h1>
+<form action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" name="_method" value ="put">
+  <textarea name="body"><%= @post.body %></textarea><br>
+  <input type="submit" value="Edit">
 </form>
-<a href="/templates">Home</a>
+<a href="/posts/<%= @post.id %>">Cancel</a>
