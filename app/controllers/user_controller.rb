@@ -15,14 +15,26 @@ def login
   if @user.password == params[:password]
     session[:user_id] = @user.id
     session[:visit] = 0
-    redirect "users/#{@user.id}"
+    redirect "users/#{@user.id}/feed"
   else
     redirect '/'
   end
 end
 
-#create new user
+post '/users/login' do
+  login
+end
 
+post '/users' do
+  if create
+    session[:user_id] = @user.id
+    session[:visit] = 0
+    redirect "users/#{@user.id}"
+  else
+    @errors = @user.errors.full_messages
+    erb :'users/new'
+  end
+end
 
 #get edit page
 get '/users/:id/edit' do
