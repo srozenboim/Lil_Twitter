@@ -1,3 +1,5 @@
+<html>
+
 <h1>Hello, <%= @user.username %>!</h1>
 <img src=<%= @user.gravatar_url %> />
 
@@ -8,7 +10,7 @@
   <input class="btn btn-primary" type="submit" value="Submit" />
 </form>
 
-<a href="/users/<%= @user.id %>/edit">Edit Profile Settings</a>
+<a href="/users/<%= @user.id %>/edit">Edit Profile Settings</a><br><br>
 
 <ul>
   <% @posts.each do |post| %>
@@ -25,4 +27,6 @@
     </li>
   <% end %>
 </ul>
+
+</html>
 
