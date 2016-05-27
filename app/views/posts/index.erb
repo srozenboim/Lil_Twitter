@@ -1,6 +1,6 @@
 
-<div class="container">
-  <div class="template-list">
+<div >
+  <div>
     <ul>
       <% @templates.each do |template| %>
         <li>
@@ -12,7 +12,7 @@
                 <a href="/templates/<%= template.id %>/edit">edit</a>
                   <form class="template-delete button" action="/templates/<%= template.id %>" method="post">
                   <input type="hidden" name="_method" value="delete">
-                  <input type="submit" value="delete template" class="template-delete">
+                  <input class="btn btn-primary" type="submit" value="delete template" class="template-delete">
                 </form>
               <% end %>
               Created <%= Time.now - template.created_at %> ago

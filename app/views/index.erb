@@ -5,13 +5,17 @@
 
   <form action="/users/login" method="POST">
 
+  <div class="form-group">
   <label for="email">E-mail address</label>
   <input type="text" name="email"></input>
+  </div>
 
+  <div class="form-group">
   <label for="password">Password</label>
   <input type="password" name="password"></input>
+  </div>
 
-  <input type="submit" value="Login"></input>
+  <input class="btn btn-primary" type="submit" value="Login"></input>
 
   </form><br><br><br>
 
@@ -20,16 +24,22 @@
 
   <form action="/users" method="POST">
 
+  <div class="form-group">
   <label for="username">Username</label>
   <input type="text" name="user[username]"></input>
+  </div>
 
+  <div class="form-group">
   <label for="email">E-mail address</label>
   <input type="text" name="user[email]"></input>
+  </div>
 
+  <div class="form-group">
   <label for="password">Password</label>
   <input type="password" name="password"></input>
+  </div>
 
-  <input type="submit" value="Submit"></input>
+  <input class="btn btn-primary" type="submit" value="Submit"></input>
 
   </form><br><br><br>
 

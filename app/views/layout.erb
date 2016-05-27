@@ -6,22 +6,30 @@
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
-  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/bootstrap-theme.css">
   <!--
     application.css is where you put your styles
   -->
-  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="fonts" href="/fonts/glyphicons-halflings-regular.eot"> 
+  <link rel="fonts" href="/fonts/glyphicons-halflings-regular.svg">
+  <link rel="fonts" href="/fonts/glyphicons-halflings-regular.ttf">
+  <link rel="fonts" href="/fonts/glyphicons-halflings-regular.woff">
+  <link rel="fonts" href="/fonts/glyphicons-halflings-regular.woff2">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
+  <link rel="js" href="/js/bootstrap.js">
+  <link rel="js" href="/js/bootstrap.min.js">
+  <link rel="js" href="/js/npm.js">
+
 
   <title></title>
 </head>
 <body>
 <head>
   <title>Lil Twitter</title>
-  <link rel="stylesheet" type="text/css" href="/css/index.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+ 
 </head>
 
 <body>
@@ -41,7 +49,9 @@
       <% end %>
     </ul>
   </header>
+  <div class="container" >
   <%= yield %>
+  </div>
 </body>
 </html>
 
