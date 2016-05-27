@@ -20,15 +20,16 @@
     <ul>
       <% @posts.each do |post| %>
       <li>
-        <%= post.body %>
-        <%= post.created_at %>
+        <img src=<%= post.user.gravatar_url %> /> |
+        <%= post.body %> |
+        <%= post.created_at.strftime('%e %b %Y %H:%M:%S%p') %>
         <% if allow_edit(post) %>
-        <form action="/posts/<%= post.id %>/profile" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="delete">
-        </form>
-        <% end %>
+          <form action="/posts/<%= post.id %>/profile" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="delete">
+          </form>
+      <% end %>
       </li>
-        <% end %>
+    <% end %>
     </ul>
 </div>
