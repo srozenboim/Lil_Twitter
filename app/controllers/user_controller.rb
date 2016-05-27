@@ -39,6 +39,7 @@ end
 # get edit page
 get '/users/:id/edit' do
 	@user = User.find(params[:id])
+  redirect "/users/#{params[:id]}" if current_user != @user
 	erb :'/users/edit'
 end
 
@@ -63,7 +64,7 @@ put '/users/:id' do
   user.username = params[:username]
   user.email = params[:email]
   if user.save
-    redirect '/'
+    redirect "/users/#{params[:id]}/feed"
   else
     # flash[:errors] = user.errors.full_messages
     redirect "/users/#{current_user.id}/edit"
