@@ -1,4 +1,4 @@
-<h2>This tweet was created on: <%= @post.created_at %></h2>
+<h2>This tweet was created on: <%= @post.created_at.strftime('%e %b %Y %H:%M:%S%p') %></h2>
 
 
 <p><%= @post.body %></p>

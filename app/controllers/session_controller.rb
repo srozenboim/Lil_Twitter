@@ -19,7 +19,7 @@ end
 
 
 #delete session
-delete '/sessions/:id' do
+get '/sessions/:id' do
   current_user = nil
   session[:id] = nil
   redirect '/login'

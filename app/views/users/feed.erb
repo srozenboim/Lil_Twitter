@@ -16,7 +16,7 @@
   <% @posts.each do |post| %>
     <li class="lead">
       <img src=<%= post.user.gravatar_url %> />
-      <%= post.body %> | <%= post.created_at %> |
+      <%= post.body %> | <%= post.created_at.strftime('%e %b %Y %H:%M:%S%p') %> |
       <a href="/users/<%= post.user.id %>"><%= post.user.username %></a>
       <% if allow_edit(post) %>
         <form action="/posts/<%= post.id %>/feed" method="post">
