@@ -1,5 +1,3 @@
-
-
 get '/' do
-  redirect '/templates'
+  redirect '/users/new'
 end
