@@ -1,11 +1,15 @@
 <div>
   <br><br>  <p><%= @user.username %></p>
+
+  <a href="/users/<%= @user.id %>/following">Following</a>
+  <a href="/users/<%= @user.id %>/followers">Followers</a>
+
   <% if current_user.following?(@user) %>
   <form class="unfollow button" action="/users/<%= @user.id %>/unfollow" method="post">
     <input type="hidden" name="unfollow_user_id" value="<%= @user.id %>">
     <input type="submit" value="unfollow <%= @user.username %>" class="user-unfollow"><br><br>
   </form>
-  <% elsif current_user = @user %>
+  <% elsif current_user == @user %>
 
   <% else %>
   <form class="follow button" action="/users/<%= @user.id %>/follow" method="post">

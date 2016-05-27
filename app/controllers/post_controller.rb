@@ -25,6 +25,20 @@ post '/posts' do
   end
 end
 
+#create a retweet
+post '/posts/retweet' do
+  redirect '/sessions/new' if session[:id].nil?
+  puts "*"*100
+  puts params[:body]
+  puts "*"*100
+  @new_post = Post.new(body: params[:body], user_id: current_user.id)
+  @new_post.retweet_post(params[:retweet_id])
+  if @new_post.save
+    redirect "/users/#{current_user.id}/feed"
+  else
+    redirect "/users/#{current_user.id}/feed"
+  end
+end
 
 # get edit page
 get '/posts/:id/edit' do

@@ -1,0 +1,7 @@
+<% @user.followers.each do |person_following_me| %>
+<ul>
+  <li>
+    <a href="/users/<%= person_following_me.id %>"><%= person_following_me.username %></a>
+  </li>
+</ul>
+<% end %>
