@@ -22,6 +22,8 @@ require "sinatra/reloader" if development?
 
 require 'erb'
 
+Sinatra::Application.views = Bundler.root.join("app/views").to_s
+
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
