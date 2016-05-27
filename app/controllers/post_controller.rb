@@ -21,7 +21,7 @@ post '/posts' do
   if @new_post.save
     redirect "/users/#{params[:user_id]}/feed"
   else
-    redirect '/sessions/new'
+    redirect "/users/#{params[:user_id]}/feed"
   end
 end
 

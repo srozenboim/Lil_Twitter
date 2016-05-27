@@ -27,7 +27,7 @@ end
 
 post '/users' do
   if create
-    session[:user_id] = @user.id
+    session[:id] = @user.id
     session[:visit] = 0
     redirect "users/#{@user.id}/feed"
   else
@@ -39,6 +39,7 @@ end
 # get edit page
 get '/users/:id/edit' do
 	@user = User.find(params[:id])
+  redirect "/users/#{params[:id]}" if current_user != @user
 	erb :'/users/edit'
 end
 
@@ -63,7 +64,7 @@ put '/users/:id' do
   user.username = params[:username]
   user.email = params[:email]
   if user.save
-    redirect '/'
+    redirect "/users/#{params[:id]}/feed"
   else
     # flash[:errors] = user.errors.full_messages
     redirect "/users/#{current_user.id}/edit"
@@ -78,5 +79,18 @@ delete '/users/:id' do
   current_user = nil
   redirect '/'
 end
+
+#follow user
+post '/users/:id/follow' do
+  current_user.follow(User.find(params[:follow_user_id]))
+  redirect "/users/#{params[:follow_user_id]}"
+end
+
+
+
+
+
+
+
 
 
