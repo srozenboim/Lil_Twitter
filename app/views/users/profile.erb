@@ -2,7 +2,7 @@
   <br><br>  <p><%= @user.username %></p>
   <form class="follow button" action="/users/<%= @user.id %>/follow" method="post">
     <input type="hidden" name="follow_user_id" value="<%= @user.id %>">
-    <input type="submit" value="follow <%= @user.username %>" class="user-follow"><br><br>
+    <input class="btn btn-primary" type="submit" value="follow <%= @user.username %>" class="user-follow"><br><br>
   </form>
     <ul>
       <% @posts.each do |post| %>
