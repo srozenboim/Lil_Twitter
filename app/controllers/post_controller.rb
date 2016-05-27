@@ -50,13 +50,24 @@ put '/posts/:id' do
   redirect "posts/#{@post.id}"
 end
 
-#delete post
-# delete '/posts/:id' do
-#   @post = Post.find(params[:id])
-#   if allow_edit(@post)
-#     @template.destroy
-#     redirect "/posts"
-#   else
-#     redirect "/posts/#{params[:id]}"
-#   end
-# end
+#delete post from feed
+delete '/posts/:id/feed' do
+  @post = Post.find(params[:id])
+  if allow_edit(@post)
+    @post.destroy
+    redirect "/users/#{current_user.id}/feed"
+  else
+    redirect "/users/#{current_user.id}/feed"
+  end
+end
+
+#delete post from profile
+delete '/posts/:id/profile' do
+  @post = Post.find(params[:id])
+  if allow_edit(@post)
+    @post.destroy
+    redirect "/users/#{current_user.id}"
+  else
+    redirect "/users/#{current_user.id}"
+  end
+end

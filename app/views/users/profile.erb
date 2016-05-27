@@ -1,16 +1,31 @@
 <div>
   <br><br>  <p><%= @user.username %></p>
+  <% if current_user.following?(@user) %>
+  <form class="unfollow button" action="/users/<%= @user.id %>/unfollow" method="post">
+    <input type="hidden" name="unfollow_user_id" value="<%= @user.id %>">
+    <input type="submit" value="unfollow <%= @user.username %>" class="user-unfollow"><br><br>
+  </form>
+  <% elsif current_user = @user %>
+
+  <% else %>
   <form class="follow button" action="/users/<%= @user.id %>/follow" method="post">
     <input type="hidden" name="follow_user_id" value="<%= @user.id %>">
     <input class="btn btn-primary" type="submit" value="follow <%= @user.username %>" class="user-follow"><br><br>
   </form>
+  <% end %>
     <ul>
       <% @posts.each do |post| %>
-        <li>
-          <img src=<%= post.user.gravatar_url %> /> |
-          <%= post.body %> |
-          <%= post.created_at %>
-        </li>
+      <li>
+        <img src=<%= post.user.gravatar_url %> /> |
+        <%= post.body %> |
+        <%= post.created_at %>
+        <% if allow_edit(post) %>
+          <form action="/posts/<%= post.id %>/profile" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="delete">
+          </form>
       <% end %>
+      </li>
+    <% end %>
     </ul>
 </div>

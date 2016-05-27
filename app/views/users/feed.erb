@@ -16,6 +16,12 @@
       <img src=<%= post.user.gravatar_url %> />
       <%= post.body %> | <%= post.created_at %> |
       <a href="/users/<%= post.user.id %>"><%= post.user.username %></a>
+      <% if allow_edit(post) %>
+        <form action="/posts/<%= post.id %>/feed" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="delete">
+        </form>
+      <% end %>
     </li>
   <% end %>
 </ul>
