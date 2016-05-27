@@ -31,21 +31,24 @@
 </head>
 
 <body>
-  <ul class = "navbarul">
-  <li class = "navbarli"><a href="/">Home</a></li>
-  <% if logged_in %>
-      <li class = "navbarli">
-        <form action="/sessions/<%= current_user.id %>" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="logout" class="session-delete">
-        </form>
-      </li>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+       <div class="navbar-header">
+         <ul class="navbar-nav nav">
+           <li class = "navbarli"><a href="/">Home</a></li>
+           <% if logged_in %>
+             <li class = "navbarli">
+               <a href="/sessions/<%= current_user.id %>">Logout</a>
+             </li>
 
-    <% else %>
-    <li class = "navbarli"><a href="/login">Login</a></li>
-    <li class = "navbarli"><a href="/users/new">Sign Up</a></li>
-    <% end %>
-  </ul>
+           <% else %>
+             <li class = "navbarli"><a href="/login">Login</a></li>
+             <li class = "navbarli"><a href="/users/new">Sign Up</a></li>
+           <% end %>
+         </ul>
+       </div>
+    </div>
+  </nav>
 
 
   <div class="text-center" class="container" >
