@@ -91,8 +91,10 @@ post '/users/:id/unfollow' do
   redirect "/users/#{params[:unfollow_user_id]}"
 end
 
-
-
+get '/users/:id/following' do
+  @user = User.find(params[:id])
+  erb :'users/following'
+end
 
 
 
