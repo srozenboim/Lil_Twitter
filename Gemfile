@@ -18,6 +18,7 @@ gem 'rake'
 gem 'sinatra-flash'
 gem 'pry-byebug'
 gem 'shotgun'
+gem 'gravtastic'
 
 
 group :test do

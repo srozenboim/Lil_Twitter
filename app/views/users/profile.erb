@@ -6,8 +6,11 @@
   </form>
     <ul>
       <% @posts.each do |post| %>
-      <li><%= post.body %>
-        <%= post.created_at %></li>
-        <% end %>
+        <li>
+          <img src=<%= post.user.gravatar_url %> /> |
+          <%= post.body %> |
+          <%= post.created_at %>
+        </li>
+      <% end %>
     </ul>
 </div>
