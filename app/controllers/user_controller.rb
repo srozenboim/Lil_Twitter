@@ -32,11 +32,13 @@ end
 #show a user
 get '/users/:id' do
   @user = User.find(params[:id])
+  erb :'profile'
 end
 
 #shows personal feed
 get '/users/:id/feed' do
   @user = User.find(params[:id])
+  redirect "/users/#{params[:id]}" if current_user != @user
   @posts = @user.feed
   erb :'users/feed'
 end
