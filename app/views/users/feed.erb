@@ -21,10 +21,23 @@
       <img src=<%= post.user.gravatar_url %> />
       <%= post.body %> | <%= post.created_at.strftime('%e %b %Y %H:%M:%S%p') %> |
       <a href="/users/<%= post.user.id %>"><%= post.user.username %></a>
+      <% if post.retweet %>
+      retweeted from
+      <a href="/users/<%= post.retweeted_from.id %>"><%= post.retweeted_from.username %></a>
+      <% end %>
+
       <% if allow_edit(post) %>
         <form action="/posts/<%= post.id %>/feed" method="post">
           <input type="hidden" name="_method" value="delete">
           <input type="submit" value="delete">
+        </form>
+      <% end %>
+      <% unless allow_edit(post) %>
+        <form action="/posts/retweet" method="post">
+          <input type="hidden" name="retweet_id" value=<%= post.id %> />
+          <input type="hidden" name="body" value="<%= post.body %>" />
+          <br />
+          <input class="btn btn-primary" type="submit" value="Retweet" />
         </form>
       <% end %>
     </li>
