@@ -2,6 +2,28 @@
 
 
 <p><%= @post.body %></p>
+<p>Likes: <%= @likes %> </p>
+<p>Reposts: <%= @reposts %> </p>
+<p>Reples: <%= @replies %> </p>
+
+<form class="like button" action="/posts/<%= @post.id %>" method="post">
+    <input type="hidden" name="_method" value="like">
+    <input type="submit" value="like post" class="post-like"><br><br>
+</form>
+
+ <form class="repost button" action="/posts/<%= @post.id %>" method="post">
+    <input type="hidden" name="_method" value="repost">
+    <input type="submit" value="repost post" class="post-repost"><br><br>
+</form>
+
+<form class="Reply button" action="/posts/<%= @post.id %>" method="post">
+    <input type="hidden" name="_method" value="reply">
+    <input type='text' placeholder='Reply' name='reply'>
+    <input type="submit" value="reply to post" class="post-reply">
+ </form>
+
+
+
 
 <% if @post.user_id == current_user.id %>
   <a href="/posts/<%= @post.id %>/edit">edit</a>
