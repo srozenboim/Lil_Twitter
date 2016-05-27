@@ -18,7 +18,7 @@
       <li>
         <img src=<%= post.user.gravatar_url %> /> |
         <%= post.body %> |
-        <%= post.created_at %>
+        <%= post.created_at.strftime('%e %b %Y %H:%M:%S%p') %>
         <% if allow_edit(post) %>
           <form action="/posts/<%= post.id %>/profile" method="post">
             <input type="hidden" name="_method" value="delete">
