@@ -1,0 +1,16 @@
+<form action="/posts" method="post">
+  <input type="hidden" name="user_id" value=<%= @user.id %> />
+  <textarea name="body"></textarea>
+  <br />
+  <input type="submit" value="Submit" />
+</form>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= post.body %> | <%= post.created_at %> | 
+      <a href="/users/<%= post.user.id %>"><%= post.user.username %></a>
+    </li>
+  <% end %>
+</ul>
+

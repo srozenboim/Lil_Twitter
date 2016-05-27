@@ -1,4 +1,4 @@
-require 'Faker'
+require 'faker'
 
 20.times.map do
   User.create!(username: Faker::Name.name, email: Faker::Internet.email, password: "1234")

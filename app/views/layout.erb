@@ -19,7 +19,7 @@
 </head>
 <body>
 <head>
-  <title>DBC CRUD Template</title>
+  <title>Lil Twitter</title>
   <link rel="stylesheet" type="text/css" href="/css/index.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
@@ -27,7 +27,7 @@
 <body>
   <header class="header">
     <ul class="main-header">
-      <li class="left"><a href="#"><i class="fa fa-stack-exchange"></i>DBC CRUD</a></li>
+      <li class="left"><a href="#"><i class="fa fa-stack-exchange"></i>Lil Twitter</a></li>
       <% if logged_in %>
       <li class="right">
         <form action="/sessions/<%= current_user.id %>" method="post">
@@ -41,13 +41,6 @@
       <% end %>
     </ul>
   </header>
-  <div class="logos-filters">
-    <ul class="filter-templates">
-      <li><a href="/templates">templates</a></li>
-      <li><a href="/users">Users</a></li>
-      <li><a href="/templates/new">Ask template</a></li>
-    </ul>
-  </div>
   <%= yield %>
 </body>
 </html>
