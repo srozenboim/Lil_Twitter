@@ -1,4 +1,8 @@
+require 'gravtastic'
+
 class User < ActiveRecord::Base
+  include Gravtastic
+  has_gravatar
   validates :username, :email, :password_hash, presence: true
   validates :email, uniqueness: true
 
