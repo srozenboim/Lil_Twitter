@@ -12,6 +12,14 @@ class User < ActiveRecord::Base
     self.following << other_user
   end
 
+  def unfollow(other_user)
+    self.following.delete(other_user)
+  end
+
+  def following?(other_user)
+    self.following.include?(other_user)
+  end
+
   include BCrypt
 
   def password
