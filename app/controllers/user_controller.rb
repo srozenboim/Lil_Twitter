@@ -27,7 +27,7 @@ end
 
 post '/users' do
   if create
-    session[:user_id] = @user.id
+    session[:id] = @user.id
     session[:visit] = 0
     redirect "users/#{@user.id}/feed"
   else
@@ -78,5 +78,18 @@ delete '/users/:id' do
   current_user = nil
   redirect '/'
 end
+
+#follow user
+post '/users/:id/follow' do
+  current_user.follow(User.find(params[:follow_user_id]))
+  redirect "/users/#{params[:follow_user_id]}"
+end
+
+
+
+
+
+
+
 
 
